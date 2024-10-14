@@ -9,7 +9,7 @@ export const MyFetch = async (url, options = {}) => {
     try {
         const response = await fetch(url, {
             headers: {
-                'Content-Type': 'application/json',
+               // 'Content-Type': 'application/json',
                 'Accept-Language': 'uk-UA, ru-RU;q=0.9',
                 // Здесь можно добавить авторизацию
                 // 'Authorization': `Bearer ${yourToken}`,
