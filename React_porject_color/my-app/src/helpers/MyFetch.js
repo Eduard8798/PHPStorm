@@ -2,10 +2,10 @@ import MyError from "./MyError";
 import MyLog from "./MyLog";
 
 
-export const MyFetch = async (url, options = {}) => {
+export const MyFetch = async (setJwtToken,url, options = {}) => {
 
-    url = `http://localhost:5245/api/` + url;
-
+    //url = `http://localhost:5245/api/` + url;
+url = `` + url;
     try {
         const response = await fetch(url, {
             headers: {
@@ -14,8 +14,12 @@ export const MyFetch = async (url, options = {}) => {
                 // Здесь можно добавить авторизацию
                 // 'Authorization': `Bearer ${yourToken}`,
             },
+
             ...options,
+
         });
+    const token = await response.text();
+    setJwtToken(token);
 
         // if (!response.ok ) {
         //     throw new Error(`Error: ${response.status}`);
